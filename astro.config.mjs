@@ -8,7 +8,7 @@ const dropOptions = process.env.NODE_ENV === 'development'
 export default defineConfig({
   site: SITE.DOMAIN,
   base: SITE.BASE,
-  outDir: `./dist${SITE.BASE}/`,
+  outDir: `./dist/${SITE.BASE}/`,
   trailingSlash: 'always',
   vite: {
     esbuild: {
