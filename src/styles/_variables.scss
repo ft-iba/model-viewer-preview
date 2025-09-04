@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+$BREAKPOINT_WIDTH_SP: 767px;
+$BREAKPOINTS: (
+  'sp': 'screen and (max-width: #{$BREAKPOINT_WIDTH_SP})',
+  'pc': 'screen and (min-width: #{$BREAKPOINT_WIDTH_SP + 1})',
+);
+
+@mixin mediaQuery($size) {
+  @media #{map.get($BREAKPOINTS, $size)} {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

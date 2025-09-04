@@ -1,0 +1,32 @@
+{
+  "name": "model-viewer-preview",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "stg": "astro check && astro build --mode staging",
+    "prod": "astro check && astro build --mode production",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "android >= 13",
+    "iOS >= 17",
+    "not dead"
+  ],
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.13.5",
+    "typescript": "^5.9.2"
+  },
+  "volta": {
+    "node": "22.12.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss-preset-env": "^10.3.1",
+    "sass-embedded": "^1.92.0"
+  }
+}
