@@ -1,0 +1,69 @@
+---
+---
+<div
+  id="dropZone"
+  class="dropZone"
+>
+  <p>.glb ファイルをドラッグ&ドロップしてください</p>
+</div>
+
+<model-viewer
+  id="viewer"
+  ar
+  autoplay
+  camera-controls
+  touch-action="pan-y"
+></model-viewer>
+
+<script>
+import { type ModelViewerElement } from '@google/model-viewer';
+
+const dropZone = document.getElementById('dropZone');
+const viewer = document.getElementById('viewer');
+
+const init = () => {
+  // dragover イベントでブラウザのデフォルト挙動を無効化
+  if (!dropZone) return;
+  dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  // drop イベントでファイルを受け取る
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+
+    if (!e.dataTransfer) return;
+    const file = e.dataTransfer.files[0];
+    console.log({file});
+    if (file) {
+      const objectURL = URL.createObjectURL(file);
+      (viewer as ModelViewerElement).src = objectURL;
+      dropZone.dataset.state = 'hidden';
+    }
+  });
+}
+
+init();
+</script>
+
+<style lang="scss">
+.dropZone {
+  background-color: #eee;
+  display: grid;
+  place-content: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  &[data-state="hidden"] {
+    display: none;
+  }
+}
+
+model-viewer {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+</style>
