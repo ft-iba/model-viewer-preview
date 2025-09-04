@@ -20,7 +20,7 @@
     "@astrojs/check": "^0.9.4",
     "@google/model-viewer": "^4.1.0",
     "astro": "^5.13.5",
-    "three": "^0.180.0",
+    "three": "^0.172.0",
     "typescript": "^5.9.2"
   },
   "volta": {
